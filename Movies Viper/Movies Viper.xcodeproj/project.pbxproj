@@ -114,12 +114,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		44EF0DEC2497E67D00C7DA55 /* MoviesList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MoviesList;
+			sourceTree = "<group>";
+		};
 		90CD15012497DA8D00213527 = {
 			isa = PBXGroup;
 			children = (
-				90CD150C2497DA8D00213527 /* Movies Viper */,
-				90CD15232497DA9300213527 /* Movies ViperTests */,
-				90CD152E2497DA9300213527 /* Movies ViperUITests */,
+				90CD150C2497DA8D00213527 /* MoviesViper */,
+				90CD15232497DA9300213527 /* MoviesViperTests */,
+				90CD152E2497DA9300213527 /* MoviesViperUITests */,
 				90CD150B2497DA8D00213527 /* Products */,
 				3CD3C23644D5E00CC55BC355 /* Pods */,
 				3D629C9F455DC0E735C73ED0 /* Frameworks */,
@@ -136,9 +143,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		90CD150C2497DA8D00213527 /* Movies Viper */ = {
+		90CD150C2497DA8D00213527 /* MoviesViper */ = {
 			isa = PBXGroup;
 			children = (
+				44EF0DEC2497E67D00C7DA55 /* MoviesList */,
 				90CD150D2497DA8D00213527 /* AppDelegate.swift */,
 				90CD150F2497DA8D00213527 /* SceneDelegate.swift */,
 				90CD15112497DA8D00213527 /* ViewController.swift */,
@@ -147,25 +155,25 @@
 				90CD15182497DA9200213527 /* LaunchScreen.storyboard */,
 				90CD151B2497DA9200213527 /* Info.plist */,
 			);
-			path = "Movies Viper";
+			path = MoviesViper;
 			sourceTree = "<group>";
 		};
-		90CD15232497DA9300213527 /* Movies ViperTests */ = {
+		90CD15232497DA9300213527 /* MoviesViperTests */ = {
 			isa = PBXGroup;
 			children = (
 				90CD15242497DA9300213527 /* Movies_ViperTests.swift */,
 				90CD15262497DA9300213527 /* Info.plist */,
 			);
-			path = "Movies ViperTests";
+			path = MoviesViperTests;
 			sourceTree = "<group>";
 		};
-		90CD152E2497DA9300213527 /* Movies ViperUITests */ = {
+		90CD152E2497DA9300213527 /* MoviesViperUITests */ = {
 			isa = PBXGroup;
 			children = (
 				90CD152F2497DA9300213527 /* Movies_ViperUITests.swift */,
 				90CD15312497DA9300213527 /* Info.plist */,
 			);
-			path = "Movies ViperUITests";
+			path = MoviesViperUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,7 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UX2K5XG954;
-				INFOPLIST_FILE = "Movies Viper/Info.plist";
+				INFOPLIST_FILE = MoviesViper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -587,7 +595,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UX2K5XG954;
-				INFOPLIST_FILE = "Movies Viper/Info.plist";
+				INFOPLIST_FILE = MoviesViper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
