@@ -12,6 +12,8 @@ target 'Movies Viper' do
   target 'Movies ViperTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
   end
 
   target 'Movies ViperUITests' do

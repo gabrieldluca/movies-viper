@@ -10,4 +10,11 @@ class MovieListViewController: UIViewController {
 }
 
 extension MovieListViewController: MovieListViewProtocol {
+    func reloadData() {
+
+    }
+
+    func showError(errorMessage: String) {
+
+    }
 }
