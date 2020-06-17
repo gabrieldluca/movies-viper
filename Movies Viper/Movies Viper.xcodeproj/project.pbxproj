@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44BC8A75249A866900E9603D /* MovieListInteractorOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BC8A73249A864B00E9603D /* MovieListInteractorOutputMock.swift */; };
+		44BC8A76249A866D00E9603D /* MovieListDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BC8A71249A85F700E9603D /* MovieListDataManagerMock.swift */; };
 		44EF0DF32497E9AD00C7DA55 /* MovieListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EF0DF22497E9AD00C7DA55 /* MovieListProtocols.swift */; };
 		44EF0DF52497EDC600C7DA55 /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EF0DF42497EDC600C7DA55 /* MovieListInteractor.swift */; };
 		44EF0DF72497EE0500C7DA55 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EF0DF62497EE0500C7DA55 /* MovieListPresenter.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		3BF7F527C56F1073E940E03D /* Pods-Movies Viper-Movies ViperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Viper-Movies ViperUITests.debug.xcconfig"; path = "Target Support Files/Pods-Movies Viper-Movies ViperUITests/Pods-Movies Viper-Movies ViperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F39243BCB66573090207EA0 /* Pods-Movies ViperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies ViperTests.release.xcconfig"; path = "Target Support Files/Pods-Movies ViperTests/Pods-Movies ViperTests.release.xcconfig"; sourceTree = "<group>"; };
+		44BC8A71249A85F700E9603D /* MovieListDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataManagerMock.swift; sourceTree = "<group>"; };
+		44BC8A73249A864B00E9603D /* MovieListInteractorOutputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractorOutputMock.swift; sourceTree = "<group>"; };
 		44EF0DF22497E9AD00C7DA55 /* MovieListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListProtocols.swift; sourceTree = "<group>"; };
 		44EF0DF42497EDC600C7DA55 /* MovieListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractor.swift; sourceTree = "<group>"; };
 		44EF0DF62497EE0500C7DA55 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
@@ -122,6 +126,39 @@
 				58DAF21D0C4BC2434997D994 /* Pods_Movies_ViperTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44BC8A6D249A858300E9603D /* MoviesList */ = {
+			isa = PBXGroup;
+			children = (
+				44BC8A6E249A859800E9603D /* Mocks */,
+				90FAE4E3249927AB0041D0CB /* Interactor */,
+			);
+			path = MoviesList;
+			sourceTree = "<group>";
+		};
+		44BC8A6E249A859800E9603D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				44BC8A73249A864B00E9603D /* MovieListInteractorOutputMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		44BC8A6F249A85B600E9603D /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				44BC8A70249A85C400E9603D /* Mocks */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
+		44BC8A70249A85C400E9603D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				44BC8A71249A85F700E9603D /* MovieListDataManagerMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		44EF0DEC2497E67D00C7DA55 /* MoviesList */ = {
@@ -256,6 +293,7 @@
 		90CD15232497DA9300213527 /* MoviesViperTests */ = {
 			isa = PBXGroup;
 			children = (
+				44BC8A6F249A85B600E9603D /* DataManagers */,
 				90FAE4E2249927A60041D0CB /* Modules */,
 				90CD15262497DA9300213527 /* Info.plist */,
 			);
@@ -274,7 +312,7 @@
 		90FAE4E2249927A60041D0CB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				90FAE4E3249927AB0041D0CB /* Interactor */,
+				44BC8A6D249A858300E9603D /* MoviesList */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -551,7 +589,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44BC8A76249A866D00E9603D /* MovieListDataManagerMock.swift in Sources */,
 				90FAE4E6249927DB0041D0CB /* MovieListInteractorTests.swift in Sources */,
+				44BC8A75249A866900E9603D /* MovieListInteractorOutputMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
