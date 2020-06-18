@@ -8,14 +8,22 @@ class MovieListInteractorTests: QuickSpec {
 
     override func spec() {
         describe("MovieListInteractor") {
+
+            var interactor: MovieListInteractor!
+            var dataManager: MovieListDataManagerMock!
+            var output: MovieListInteractorOutputMock!
+
+            beforeEach {
+                interactor = MovieListInteractor()
+                dataManager = MovieListDataManagerMock()
+                output = MovieListInteractorOutputMock()
+                interactor.dataManager = dataManager
+                interactor.output = output
+            }
+
             describe("#fetchMovies") {
                 context("the movies were fetched successfully") {
                     it("return the movie list to the output") {
-                        let interactor = MovieListInteractor()
-                        let dataManager = MovieListDataManagerMock()
-                        let output = MovieListInteractorOutputMock()
-                        interactor.dataManager = dataManager
-                        interactor.output = output
                         let movies = [Movie(title: "La La Land", releaseYear: 2016, imagePath: "google.com")]
                         dataManager.mockResult = .success(movies)
 
@@ -27,13 +35,9 @@ class MovieListInteractorTests: QuickSpec {
 
                     }
                 }
+
                 context("the movies were not fetched successfully") {
                     it("return the error to the output") {
-                        let interactor = MovieListInteractor()
-                        let dataManager = MovieListDataManagerMock()
-                        let output = MovieListInteractorOutputMock()
-                        interactor.dataManager = dataManager
-                        interactor.output = output
                         let error = MockError.myError
                         dataManager.mockResult = .failure(error)
 
