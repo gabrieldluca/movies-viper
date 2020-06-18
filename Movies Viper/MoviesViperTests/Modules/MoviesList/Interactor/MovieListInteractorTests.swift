@@ -32,13 +32,12 @@ class MovieListInteractorTests: QuickSpec {
                         expect(output.didCallMoviesDidFetch).to(beTrue())
                         expect(output.didCallMoviesDidFetchWith).to(equal(movies))
                         expect(dataManager.didCallFetchMovies).to(beTrue())
-
                     }
                 }
 
                 context("the movies were not fetched successfully") {
                     it("return the error to the output") {
-                        let error = MockError.myError
+                        let error = MovieListErrorMock.myError
                         dataManager.mockResult = .failure(error)
 
                         interactor.fetchMovies()
@@ -46,13 +45,9 @@ class MovieListInteractorTests: QuickSpec {
                         expect(output.didCallMoviesFailToFetch).to(beTrue())
                         expect(output.didCallMoviesFailToFetchWith).to(matchError(error))
                         expect(dataManager.didCallFetchMovies).to(beTrue())
-
                     }
                 }
             }
         }
-    }
-    enum MockError: Error {
-        case myError
     }
 }

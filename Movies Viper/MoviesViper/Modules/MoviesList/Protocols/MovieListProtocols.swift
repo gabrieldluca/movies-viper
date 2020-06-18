@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MovieListViewProtocol: class {
-    var presenter: MovieListPresenterProtocol? {get set}
+    var presenter: MovieListPresenterProtocol? { get set }
     // Add here your methods for communication PRESENTER -> VIEW
     func reloadData()
     func showError(errorMessage: String)
@@ -34,5 +34,4 @@ protocol MovieListInteractorProtocol: class {
 protocol MovieListRouterProtocol: class {
     // Add here your methods for communication PRESENTER -> ROUTER
     func build() -> UIViewController
-
 }

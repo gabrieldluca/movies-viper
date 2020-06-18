@@ -1,10 +1,10 @@
 @testable import Movies_Viper
 
 class MovieListInteractorOutputMock: MovieListInteractorOutputProtocol {
-    var didCallMoviesDidFetch: Bool = false
+    var didCallMoviesDidFetch = false
     var didCallMoviesDidFetchWith: [Movie] = []
 
-    var didCallMoviesFailToFetch: Bool = false
+    var didCallMoviesFailToFetch = false
     var didCallMoviesFailToFetchWith: Error?
 
     func moviesDidFetch(movies: [Movie]) {
@@ -16,5 +16,4 @@ class MovieListInteractorOutputMock: MovieListInteractorOutputProtocol {
         didCallMoviesFailToFetch = true
         didCallMoviesFailToFetchWith = error
     }
-
 }
