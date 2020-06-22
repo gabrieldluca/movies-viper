@@ -9,16 +9,24 @@ class MovieListViewControllerTest: QuickSpec {
     override func spec() {
         describe("MovieListViewController") {
 
-            var view: MovieListViewController!
+            var viewController: MovieListViewController!
 
             beforeEach {
-                view = MovieListViewController()
+                viewController = MovieListViewController()
             }
 
             describe("#viewDidLoad") {
+
+                beforeEach {
+                    viewController.viewDidLoad()
+                }
+
                 it("set up the title as Movie List") {
-                    view.viewDidLoad()
-                    expect(view.title).to(equal("Movie List"))
+                    expect(viewController.title).to(equal("Movie List"))
+                }
+
+                it("set backgroundColor to white") {
+                    expect(viewController.view.backgroundColor).to(equal(.white))
                 }
             }
         }
