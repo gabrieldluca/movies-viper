@@ -5,6 +5,7 @@ class MovieListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Movie List"
         view.backgroundColor = .white
     }
 }

@@ -22,9 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func initMainScreen() {
-        let viewControllerMain = MovieListRouter().build()
-        let navigationController = UINavigationController(rootViewController: viewControllerMain)
-        window?.rootViewController = navigationController
+        let navigationControllerMain = MovieListRouter().build()
+        window?.rootViewController = navigationControllerMain
         window?.makeKeyAndVisible()
     }
 }

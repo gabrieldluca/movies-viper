@@ -7,12 +7,17 @@ class MovieListRouter: MovieListRouterProtocol {
         let interactor = MovieListInteractor()
         let presenter = MovieListPresenter()
         let viewController = MovieListViewController()
+
         viewController.presenter = presenter
         presenter.view = viewController
         presenter.interactor = interactor
         presenter.router = self
         interactor.output = presenter
         baseViewController = viewController
-        return viewController
+
+         let navigationController = UINavigationController(rootViewController: viewController)
+
+        navigationController.navigationBar.prefersLargeTitles = true
+        return navigationController
     }
 }
