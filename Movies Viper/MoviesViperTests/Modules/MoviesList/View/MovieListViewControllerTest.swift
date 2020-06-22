@@ -15,6 +15,12 @@ class MovieListViewControllerTest: QuickSpec {
                 viewController = MovieListViewController()
             }
 
+            describe("#init") {
+                it("sets a collectionView") {
+                    expect(viewController.collectionView).toNot(beNil())
+                }
+            }
+
             describe("#viewDidLoad") {
 
                 beforeEach {
@@ -27,6 +33,16 @@ class MovieListViewControllerTest: QuickSpec {
 
                 it("set backgroundColor to white") {
                     expect(viewController.view.backgroundColor).to(equal(.white))
+                }
+            }
+
+            describe(".collectionView") {
+                it("delegate is MovieListViewController") {
+                    expect(viewController.collectionView.delegate).to(be(viewController))
+                }
+
+                it("dataSource is MovieListViewController") {
+                    expect(viewController.collectionView.dataSource).to(be(viewController))
                 }
             }
         }
