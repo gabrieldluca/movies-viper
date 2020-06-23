@@ -27,6 +27,10 @@ class MovieListViewControllerTest: QuickSpec {
                     viewController.viewDidLoad()
                 }
 
+                it("adds collectionView in the view hierarchy") {
+                    expect(viewController.view.subviews).to(contain(viewController.collectionView))
+                }
+
                 it("set up the title as Movie List") {
                     expect(viewController.title).to(equal("Movie List"))
                 }
