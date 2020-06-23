@@ -14,7 +14,7 @@ class MovieListPresenter: MovieListPresenterProtocol {
         indexPath.row < movieList.count ? movieList[indexPath.row] : nil
     }
 
-    func numberOfRows() -> Int {
+    func numberOfItems() -> Int {
         return movieList.count
     }
 }

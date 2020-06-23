@@ -20,7 +20,9 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: MovieListViewProtocol {
     func reloadData() {
-
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 
     func showError(errorMessage: String) {
@@ -35,7 +37,7 @@ extension MovieListViewController: UICollectionViewDelegate {
 extension MovieListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 0
+        presenter?.numberOfItems() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,

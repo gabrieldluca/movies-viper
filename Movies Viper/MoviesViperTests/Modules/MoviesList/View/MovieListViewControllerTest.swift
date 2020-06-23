@@ -10,9 +10,12 @@ class MovieListViewControllerTest: QuickSpec {
         describe("MovieListViewController") {
 
             var viewController: MovieListViewController!
+            var presenter: MovieListPresenterMock!
 
             beforeEach {
                 viewController = MovieListViewController()
+                presenter = MovieListPresenterMock()
+                viewController.presenter = presenter
             }
 
             describe("#init") {
@@ -47,6 +50,15 @@ class MovieListViewControllerTest: QuickSpec {
 
                 it("dataSource is MovieListViewController") {
                     expect(viewController.collectionView.dataSource).to(be(viewController))
+                }
+            }
+
+            describe("#collectionViewNumberOfItemsInSection") {
+                it("returns the number of items from presenter") {
+                    presenter.numberOfItemsToReturn = 6
+                    let collectionView = viewController.collectionView
+                    let numberOfItems = viewController.collectionView(collectionView, numberOfItemsInSection: 0)
+                    expect(numberOfItems).to(equal(6))
                 }
             }
         }

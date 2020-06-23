@@ -69,12 +69,12 @@ class MovieListPresenterTests: QuickSpec {
                 }
             }
 
-            describe("#numberOfRows") {
+            describe("#numberOfItems") {
                 context("the movies were not fetched") {
                     it("returns the default value of zero") {
-                        let numOfRows = presenter.numberOfRows()
+                        let numberOfItems = presenter.numberOfItems()
 
-                        expect(numOfRows).to(equal(0))
+                        expect(numberOfItems).to(equal(0))
                     }
                 }
 
@@ -83,9 +83,9 @@ class MovieListPresenterTests: QuickSpec {
                         let movie = Movie(title: "Parasite", releaseYear: 2019, imagePath: "oscar-winner")
 
                         presenter.moviesDidFetch(movies: [movie])
-                        let numOfRows = presenter.numberOfRows()
+                        let numberOfItems = presenter.numberOfItems()
 
-                        expect(numOfRows).to(equal(1))
+                        expect(numberOfItems).to(equal(1))
                     }
 
                     context("and when fetch again the movies failed to fetch") {
@@ -94,9 +94,9 @@ class MovieListPresenterTests: QuickSpec {
 
                             presenter.moviesDidFetch(movies: [movie])
                             presenter.moviesFailToFetch(error: MovieListErrorMock.myError)
-                            let numOfRows = presenter.numberOfRows()
+                            let numberOfItems = presenter.numberOfItems()
 
-                            expect(numOfRows).to(equal(0))
+                            expect(numberOfItems).to(equal(0))
                         }
                     }
                 }
@@ -104,9 +104,9 @@ class MovieListPresenterTests: QuickSpec {
                 context("the movies failed to fetch") {
                     it("returns the default value of zero") {
                         presenter.moviesFailToFetch(error: MovieListErrorMock.myError)
-                        let numOfRows = presenter.numberOfRows()
+                        let numberOfItems = presenter.numberOfItems()
 
-                        expect(numOfRows).to(equal(0))
+                        expect(numberOfItems).to(equal(0))
                     }
                 }
             }

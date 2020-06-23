@@ -15,7 +15,7 @@ protocol MovieListPresenterProtocol: class {
     // Add here your methods for communication VIEW -> PRESENTER
     func viewWillAppear()
     func movie(for indexPath: IndexPath) -> Movie?
-    func numberOfRows() -> Int
+    func numberOfItems() -> Int
 }
 
 protocol MovieListInteractorOutputProtocol: class {
