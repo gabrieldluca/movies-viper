@@ -6,6 +6,7 @@ class MovieListPresenterMock: MovieListPresenterProtocol {
     var interactor: MovieListInteractorProtocol?
     var router: MovieListRouterProtocol?
 
+    var movieToReturn: Movie?
     var numberOfItemsToReturn = 0
     var didCallViewWillAppear = false
     var didCallMovieForIndexPathWith: IndexPath!
@@ -16,12 +17,10 @@ class MovieListPresenterMock: MovieListPresenterProtocol {
 
     func movie(for indexPath: IndexPath) -> Movie? {
         didCallMovieForIndexPathWith = indexPath
-        return nil
+        return movieToReturn
     }
 
     func numberOfItems() -> Int {
         numberOfItemsToReturn
     }
-
-
 }

@@ -6,7 +6,7 @@ import Nimble
 
 class MovieListViewControllerTest: QuickSpec {
 
-    override func spec() {
+    override func spec() { // swiftlint:disable:this function_body_length
         describe("MovieListViewController") {
 
             var viewController: MovieListViewController!
@@ -59,6 +59,36 @@ class MovieListViewControllerTest: QuickSpec {
                     let collectionView = viewController.collectionView
                     let numberOfItems = viewController.collectionView(collectionView, numberOfItemsInSection: 0)
                     expect(numberOfItems).to(equal(6))
+                }
+            }
+
+            describe("#collectionViewCellForItemAtIndex") {
+                beforeEach {
+                    viewController.viewDidLoad()
+                }
+
+                it("returns the movie cell") {
+                    let indexPath = IndexPath(item: 0, section: 0)
+                    presenter.numberOfItemsToReturn = 1
+                    presenter.movieToReturn = Movie(title: "A pequena sereia",
+                                                    releaseYear: 1997,
+                                                    imagePath: "")
+
+                    let collectionView = viewController.collectionView
+
+                    let cell = viewController.collectionView(collectionView, cellForItemAt: indexPath)
+                    expect(cell).to(beAKindOf(MovieCollectionViewCell.self))
+                }
+
+                it("calls the presenter with the correct indexPath") {
+                    let indexPath = IndexPath(item: 1, section: 0)
+                    presenter.numberOfItemsToReturn = 2
+
+                    let collectionView = viewController.collectionView
+
+                    _ = viewController.collectionView(collectionView, cellForItemAt: indexPath)
+                    expect(presenter.didCallMovieForIndexPathWith).to(equal(indexPath))
+
                 }
             }
         }

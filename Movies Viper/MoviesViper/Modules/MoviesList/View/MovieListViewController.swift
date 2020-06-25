@@ -7,6 +7,8 @@ class MovieListViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         collection.translatesAutoresizingMaskIntoConstraints = false
+        let identifier = String(describing: MovieCollectionViewCell.self)
+        collection.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
         return collection
     }()
 
@@ -42,7 +44,14 @@ extension MovieListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return .init()
+        let identifier = String(describing: MovieCollectionViewCell.self)
+
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MovieCollectionViewCell,
+            let movie = presenter?.movie(for: indexPath) else {
+            return .init()
+        }
+        return cell
     }
 }
 
