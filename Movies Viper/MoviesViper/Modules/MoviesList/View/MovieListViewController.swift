@@ -51,6 +51,7 @@ extension MovieListViewController: UICollectionViewDataSource {
             let movie = presenter?.movie(for: indexPath) else {
             return .init()
         }
+        cell.configure(with: movie)
         return cell
     }
 }

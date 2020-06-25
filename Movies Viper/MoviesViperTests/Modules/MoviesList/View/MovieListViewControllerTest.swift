@@ -62,33 +62,34 @@ class MovieListViewControllerTest: QuickSpec {
                 }
             }
 
-            describe("#collectionViewCellForItemAtIndex") {
+            describe("#collectionViewCellForItemAtIndexPath") {
+
+                var collectionView: UICollectionView!
+
                 beforeEach {
                     viewController.viewDidLoad()
-                }
-
-                it("returns the movie cell") {
-                    let indexPath = IndexPath(item: 0, section: 0)
-                    presenter.numberOfItemsToReturn = 1
-                    presenter.movieToReturn = Movie(title: "A pequena sereia",
-                                                    releaseYear: 1997,
-                                                    imagePath: "")
-
-                    let collectionView = viewController.collectionView
-
-                    let cell = viewController.collectionView(collectionView, cellForItemAt: indexPath)
-                    expect(cell).to(beAKindOf(MovieCollectionViewCell.self))
+                    collectionView = viewController.collectionView
                 }
 
                 it("calls the presenter with the correct indexPath") {
                     let indexPath = IndexPath(item: 1, section: 0)
                     presenter.numberOfItemsToReturn = 2
 
-                    let collectionView = viewController.collectionView
-
                     _ = viewController.collectionView(collectionView, cellForItemAt: indexPath)
                     expect(presenter.didCallMovieForIndexPathWith).to(equal(indexPath))
+                }
 
+                it("sets the cell's movie title") {
+                    let indexPath = IndexPath(item: 0, section: 0)
+                    presenter.numberOfItemsToReturn = 1
+                    presenter.movieToReturn = Movie(title: "Mulan",
+                                                    releaseYear: 2002,
+                                                    imagePath: "")
+
+                    let cell = viewController
+                        .collectionView(collectionView, cellForItemAt: indexPath) as? MovieCollectionViewCell
+                    expect(cell).to(beAKindOf(MovieCollectionViewCell.self))
+                    expect(cell?.titleLabel.text).to(equal("Mulan"))
                 }
             }
         }
