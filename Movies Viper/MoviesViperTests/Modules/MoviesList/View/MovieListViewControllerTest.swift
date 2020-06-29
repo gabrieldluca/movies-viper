@@ -38,8 +38,15 @@ class MovieListViewControllerTest: QuickSpec {
                     expect(viewController.title).to(equal("Movie List"))
                 }
 
-                it("set backgroundColor to white") {
-                    expect(viewController.view.backgroundColor).to(equal(.white))
+                it("set backgroundColor to systemBackground") {
+                    expect(viewController.view.backgroundColor).to(equal(.systemBackground))
+                }
+            }
+
+            describe("#viewWillAppear") {
+                it("calls the presenter's viewWillAppear") {
+                    viewController.viewWillAppear(false)
+                    expect(presenter.didCallViewWillAppear).to(beTrue())
                 }
             }
 

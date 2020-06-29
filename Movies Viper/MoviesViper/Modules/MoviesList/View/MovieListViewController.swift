@@ -3,9 +3,12 @@ import UIKit
 class MovieListViewController: UIViewController {
     var presenter: MovieListPresenterProtocol?
     lazy var collectionView: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init())
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 100)
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.delegate = self
         collection.dataSource = self
+        collection.backgroundColor = .systemBackground
         collection.translatesAutoresizingMaskIntoConstraints = false
         let identifier = String(describing: MovieCollectionViewCell.self)
         collection.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
@@ -15,8 +18,13 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Movie List"
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setUp()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
     }
 }
 
