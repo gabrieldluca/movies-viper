@@ -26,6 +26,14 @@ class MovieListViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter?.viewWillAppear()
     }
+
+    public override func willTransition(to newCollection: UITraitCollection,
+                                        with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
+    }
 }
 
 extension MovieListViewController: MovieListViewProtocol {
@@ -40,7 +48,19 @@ extension MovieListViewController: MovieListViewProtocol {
     }
 }
 
-extension MovieListViewController: UICollectionViewDelegate {
+extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let referenceValue = view.frame.width
+        let spacingBetweenCells = 12 / 320 * referenceValue
+
+        let width: CGFloat = (referenceValue - spacingBetweenCells * 2) / 3
+        let heightProportion: CGFloat = 148 / 90
+        let height: CGFloat = heightProportion * width
+
+        return .init(width: width, height: height )
+    }
 
 }
 
@@ -59,7 +79,7 @@ extension MovieListViewController: UICollectionViewDataSource {
             let movie = presenter?.movie(for: indexPath) else {
             return .init()
         }
-        cell.configure(with: movie)
+        cell.configure(with: movie, indexPath: indexPath)
         return cell
     }
 }
@@ -70,9 +90,10 @@ extension MovieListViewController: ViewRender {
     }
 
     func addConstraints() {
+        let padding = 16 / 320 * UIScreen.main.bounds.width
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
     }
 }
