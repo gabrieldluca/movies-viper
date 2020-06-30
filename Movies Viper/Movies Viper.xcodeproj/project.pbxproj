@@ -12,6 +12,7 @@
 		27B1071F249BCD4E00B4B04F /* MovieListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1071E249BCD4E00B4B04F /* MovieListViewMock.swift */; };
 		27B10721249BD5A500B4B04F /* MovieListErrorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B10720249BD5A500B4B04F /* MovieListErrorMock.swift */; };
 		27B10723249BDA9B00B4B04F /* MovieListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B10722249BDA9B00B4B04F /* MovieListInteractorMock.swift */; };
+		446F4F4F24ABC8C20035F85E /* MovieDiscoverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F4F4E24ABC8C20035F85E /* MovieDiscoverResponse.swift */; };
 		44A6965C24A13F4800C14D66 /* MovieListViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6965B24A13F4800C14D66 /* MovieListViewControllerTest.swift */; };
 		44A6965E24A29FF100C14D66 /* MovieListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6965D24A29FF100C14D66 /* MovieListPresenterMock.swift */; };
 		44BC8A75249A866900E9603D /* MovieListInteractorOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BC8A73249A864B00E9603D /* MovieListInteractorOutputMock.swift */; };
@@ -61,6 +62,7 @@
 		27B10722249BDA9B00B4B04F /* MovieListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractorMock.swift; sourceTree = "<group>"; };
 		3BF7F527C56F1073E940E03D /* Pods-Movies Viper-Movies ViperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Viper-Movies ViperUITests.debug.xcconfig"; path = "Target Support Files/Pods-Movies Viper-Movies ViperUITests/Pods-Movies Viper-Movies ViperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F39243BCB66573090207EA0 /* Pods-Movies ViperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies ViperTests.release.xcconfig"; path = "Target Support Files/Pods-Movies ViperTests/Pods-Movies ViperTests.release.xcconfig"; sourceTree = "<group>"; };
+		446F4F4E24ABC8C20035F85E /* MovieDiscoverResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDiscoverResponse.swift; sourceTree = "<group>"; };
 		44A6965B24A13F4800C14D66 /* MovieListViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewControllerTest.swift; sourceTree = "<group>"; };
 		44A6965D24A29FF100C14D66 /* MovieListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenterMock.swift; sourceTree = "<group>"; };
 		44BC8A71249A85F700E9603D /* MovieListDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataManagerMock.swift; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 				58DAF21D0C4BC2434997D994 /* Pods_Movies_ViperTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		446F4F4D24ABC8AA0035F85E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				446F4F4E24ABC8C20035F85E /* MovieDiscoverResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		44A6965A24A13EFF00C14D66 /* View */ = {
@@ -301,6 +311,7 @@
 		9087B79524992B1E009BDD61 /* MovieListDataManagers */ = {
 			isa = PBXGroup;
 			children = (
+				446F4F4D24ABC8AA0035F85E /* Model */,
 				9087B79324992B06009BDD61 /* Entity */,
 				9087B79824992BC1009BDD61 /* MovieListDataManager.swift */,
 			);
@@ -634,6 +645,7 @@
 				44EF0DFB2497EFBC00C7DA55 /* MovieListRouter.swift in Sources */,
 				90CD150E2497DA8D00213527 /* AppDelegate.swift in Sources */,
 				90E3A49A24A50FA4003744EF /* MovieCollectionViewCell.swift in Sources */,
+				446F4F4F24ABC8C20035F85E /* MovieDiscoverResponse.swift in Sources */,
 				9087B79724992B30009BDD61 /* Movie.swift in Sources */,
 				90CD15102497DA8D00213527 /* SceneDelegate.swift in Sources */,
 			);

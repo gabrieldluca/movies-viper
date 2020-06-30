@@ -53,7 +53,7 @@ extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDel
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let referenceValue = view.frame.width
-        let spacingBetweenCells = 12 / 320 * referenceValue
+        let spacingBetweenCells = 30 / 320 * referenceValue
 
         let width: CGFloat = (referenceValue - spacingBetweenCells * 2) / 3
         let heightProportion: CGFloat = 148 / 90

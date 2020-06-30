@@ -3,9 +3,11 @@ import UIKit
 class MovieCollectionViewCell: UICollectionViewCell {
     public let titleLabel: UILabel = UILabel()
     public let posterImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        return iv
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 8
+        imageView.clipsToBounds = true
+        return imageView
     }()
 
     private lazy var stack: UIStackView = {
@@ -30,6 +32,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     public func configure(with movie: Movie, indexPath: IndexPath) {
         titleLabel.text = movie.title
         self.indexPath = indexPath
+        downloadImage(urlString: movie.imagePath)
     }
 
     override func prepareForReuse() {
@@ -38,10 +41,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
         posterImageView.image = nil
     }
 
-
     private func downloadImage(urlString: String) {
         guard let indexPath = indexPath else { return }
-        ImageDataManager.shared.loadImage(urlString: urlString, indexPath: indexPath) { [unowned self] (image, oldIndexPath) in
+        ImageDataManager.shared.loadImage(urlString: urlString,
+                                          indexPath: indexPath) { [unowned self] (image, oldIndexPath) in
             if oldIndexPath == self.indexPath {
                 self.posterImageView.image = image
             }
@@ -51,15 +54,18 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
 extension MovieCollectionViewCell: ViewRender {
     func addConstraints() {
+        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.topAnchor.constraint(equalTo: topAnchor).isActive = true
         stack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         stack.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        stack.trailingAnchor.constraint(equalTo: <#T##NSLayoutAnchor<NSLayoutXAxisAnchor>#>)
+        stack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
     }
 
     func addViewHierarchy() {
         addSubview(stack)
     }
-
 
 }
