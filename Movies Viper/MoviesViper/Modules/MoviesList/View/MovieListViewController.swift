@@ -18,6 +18,7 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Movie List"
+        navigationController?.navigationBar.accessibilityIdentifier = "MovieListNavigationBar"
         view.backgroundColor = .systemBackground
         setUp()
     }

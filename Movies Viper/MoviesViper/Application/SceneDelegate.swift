@@ -15,6 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
+        if ProcessInfo.processInfo.arguments.contains("UITesting") {
+            setupMocks()
+        }
+
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
@@ -25,5 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationControllerMain = MovieListRouter().build()
         window?.rootViewController = navigationControllerMain
         window?.makeKeyAndVisible()
+    }
+
+    private func setupMocks() {
+        MovieListDataManagerFactory.shared = MovieListDataManagerUIMock()
     }
 }
