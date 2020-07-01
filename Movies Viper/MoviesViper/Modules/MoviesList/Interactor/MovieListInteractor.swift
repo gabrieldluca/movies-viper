@@ -1,7 +1,7 @@
 import UIKit
 
 class MovieListInteractor: MovieListInteractorProtocol {
-    var output: MovieListInteractorOutputProtocol?
+    weak var output: MovieListInteractorOutputProtocol?
     var dataManager: MovieListDataManagerProtocol = MovieListDataManagerFactory.shared
 
     func fetchMovies() {

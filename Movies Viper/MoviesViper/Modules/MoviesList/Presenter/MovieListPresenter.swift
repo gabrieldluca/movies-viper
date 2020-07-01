@@ -1,7 +1,7 @@
 import UIKit
 
 class MovieListPresenter: MovieListPresenterProtocol {
-    var view: MovieListViewProtocol?
+    weak var view: MovieListViewProtocol?
     var interactor: MovieListInteractorProtocol?
     var router: MovieListRouterProtocol?
     private var movieList: [Movie] = []
