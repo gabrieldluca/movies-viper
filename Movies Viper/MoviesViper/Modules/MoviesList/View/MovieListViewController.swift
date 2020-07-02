@@ -10,6 +10,7 @@ class MovieListViewController: UIViewController {
         collection.dataSource = self
         collection.backgroundColor = .systemBackground
         collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.accessibilityIdentifier = "MovieListCollection"
         let identifier = String(describing: MovieCollectionViewCell.self)
         collection.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
         return collection
@@ -26,14 +27,6 @@ class MovieListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.viewWillAppear()
-    }
-
-    public override func willTransition(to newCollection: UITraitCollection,
-                                        with coordinator: UIViewControllerTransitionCoordinator) {
-        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-            return
-        }
-        flowLayout.invalidateLayout()
     }
 }
 

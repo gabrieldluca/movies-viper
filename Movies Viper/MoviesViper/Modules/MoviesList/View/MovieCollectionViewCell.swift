@@ -1,7 +1,11 @@
 import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
-    public let titleLabel: UILabel = UILabel()
+    public let titleLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "Title"
+        return label
+    }()
     public let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -32,6 +36,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     public func configure(with movie: Movie, indexPath: IndexPath) {
         titleLabel.text = movie.title
         self.indexPath = indexPath
+        self.accessibilityIdentifier = "Cell \(indexPath.description)"
         downloadImage(urlString: movie.imagePath)
     }
 
