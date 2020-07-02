@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='Movies ViperUITests.xctest' tests='23' failures='0'>
+  <testsuite name='Movies_ViperTests.MovieListInteractorTests' tests='2' failures='0'>
+    <testcase classname='Movies_ViperTests.MovieListInteractorTests' name='MovieListInteractor___fetchMovies__the_movies_were_fetched_successfully__return_the_movie_list_to_the_output' time='0.003'/>
+    <testcase classname='Movies_ViperTests.MovieListInteractorTests' name='MovieListInteractor___fetchMovies__the_movies_were_not_fetched_successfully__return_the_error_to_the_output' time='0.001'/>
+  </testsuite>
+  <testsuite name='Movies_ViperTests.MovieListPresenterTests' tests='10' failures='0'>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___viewWillAppear__tells_the_interactor_to_fetch_movies' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___movieForIndexPath__the_index_path_corresponds_to_a_movie__returns_the_movie' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___movieForIndexPath__the_index_path_corresponds_to_another_movie__returns_the_movie' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___movieForIndexPath__the_index_path_does_not_corresponds_to_a_movie__does_not_return_any_movie' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___numberOfItems__the_movies_were_not_fetched__returns_the_default_value_of_zero' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___numberOfItems__the_movies_were_fetched__returns_the_number_of_fetched_movies' time='0.000'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___numberOfItems__the_movies_were_fetched__and_when_fetch_again_the_movies_failed_to_fetch__returns_the_default_value_of_zero' time='0.004'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___numberOfItems__the_movies_failed_to_fetch__returns_the_default_value_of_zero' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___moviesDidFetch__tells_the_view_to_update_itself' time='0.000'/>
+    <testcase classname='Movies_ViperTests.MovieListPresenterTests' name='MovieListPresenter___moviesFailToFetch__tells_the_view_to_show_an_error' time='0.001'/>
+  </testsuite>
+  <testsuite name='Movies_ViperTests.MovieListViewControllerTest' tests='10' failures='0'>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___init__sets_a_collectionView' time='0.002'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___viewDidLoad__adds_collectionView_in_the_view_hierarchy' time='0.003'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___viewDidLoad__set_up_the_title_as_Movie_List' time='0.002'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___viewDidLoad__set_backgroundColor_to_systemBackground' time='0.002'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___viewWillAppear__calls_the_presenter_s_viewWillAppear' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___collectionView__delegate_is_MovieListViewController' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___collectionView__dataSource_is_MovieListViewController' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___collectionViewNumberOfItemsInSection__returns_the_number_of_items_from_presenter' time='0.001'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___collectionViewCellForItemAtIndexPath__calls_the_presenter_with_the_correct_indexPath' time='0.003'/>
+    <testcase classname='Movies_ViperTests.MovieListViewControllerTest' name='MovieListViewController___collectionViewCellForItemAtIndexPath__sets_the_cell_s_movie_title' time='0.003'/>
+  </testsuite>
+  <testsuite name='Movies_ViperUITests.MovieListUITests' tests='1' failures='0'>
+    <testcase classname='Movies_ViperUITests.MovieListUITests' name='MovieList_Smoke_Test__in_movie_list_scenne__show_a_list_of_movies' time='1.709'/>
+  </testsuite>
+</testsuites>
