@@ -6,13 +6,18 @@ class MovieListRouter: MovieListRouterProtocol {
     func build() -> UIViewController {
         let interactor = MovieListInteractor()
         let presenter = MovieListPresenter()
-        let router = MovieListRouter()
         let viewController = MovieListViewController()
+
         viewController.presenter = presenter
         presenter.view = viewController
         presenter.interactor = interactor
-        presenter.router = router
+        presenter.router = self
         interactor.output = presenter
-        return viewController
+        baseViewController = viewController
+
+         let navigationController = UINavigationController(rootViewController: viewController)
+
+        navigationController.navigationBar.prefersLargeTitles = true
+        return navigationController
     }
 }
