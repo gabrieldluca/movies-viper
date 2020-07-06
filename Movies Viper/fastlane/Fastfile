@@ -31,6 +31,10 @@ platform :ios do
     scan
     on_success()
   end
+  
+  def on_success()
+    UI.success "Successfully finished! All tests passed."
+  end
 
   def on_error(exception)
     UI.error exception
